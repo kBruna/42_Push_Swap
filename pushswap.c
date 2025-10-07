@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/02 16:57:09 by buehara          ###   ########.fr       */
+/*   Created: 2025/10/02 16:50:00 by buehara           #+#    #+#             */
+/*   Updated: 2025/10/06 20:57:02 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
-
-# include "libft/includes/libft.h"
-# include "libft/includes/get_next_line.h"
-# include "libft/includes/ft_printf.h"
-# include <unistd.h>
-# include <stdlib.h>
+#include "pushswap.h"
 
 
-typedef struct head_array
+
+int	main(int argc, char **argv)
 {
-	int len;
-	int index;
-	int *array;
-}		a_list;
+	int	*arg;
+	int	idx;
+	int ctrl;
 
-
-#endif
-
+	if (argc >= 2)
+	{
+		idx = 0;
+		arg = malloc(sizeof(int) * argc - 2);
+		while (idx < argc - 1)
+		{
+			arg[idx] = atoi(argv[idx + 1]);
+			idx++;
+		}
+		ctrl = 0;
+		while (ctrl < idx)
+		{
+			ft_printf("Number : %d\n", arg[ctrl]);
+			ctrl++;
+		}
+	}	
+	return (0);
+}

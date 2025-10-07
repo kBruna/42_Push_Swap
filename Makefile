@@ -11,36 +11,45 @@
 # **************************************************************************** #
 
 NAME = pushswap
-FLAGS = -Wall -Wextra -Werror
+
+FLAGS = -Wall -Wextra -Werror -I.
+
 CC = cc
 
 
-LIBFT := libft/libft.a
-INCLUDES := libft
 
+SRCS = pushswap.c
 
-SRCS = \
 
 OBJS = $(SRCS:.c=.o)
 
 
-AR = ar
-ARFLAGS = rcs
-
+LIBFT = libft/libft.a
 
 
 all: $(NAME)
 
 
-$(NAME) : $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME) : $(LIBFT) $(OBJS) 
+	$(CC) $(OBJS) -Llibft -lft -o $@
 
 
 %.o : %.c
-	$(CC) $(FLAGS) -I. -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(LIBFT) :
+	$(MAKE) -C libft/ all
+
+
+clean:
+	rm -fr $(OBJS)
+	$(MAKE) -C libft/ $@
+
 
 fclean : clean
 	rm -f $(NAME)
+	$(MAKE) -C libft/ $@
+
 
 re : fclean all
 
