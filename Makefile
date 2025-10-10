@@ -3,54 +3,78 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+         #
+#    By: buehara <buehara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/01 18:38:10 by buehara           #+#    #+#              #
-#    Updated: 2025/10/01 19:06:20 by buehara          ###   ########.fr        #
+#    Updated: 2025/10/10 15:08:35 by buehara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
+#		Program VARS
+# =========================================================================== ||
 
-FLAGS = -Wall -Wextra -Werror -I.
+NAME = push_swap
+ 
+FLAGS = -Wall -Wextra -Werror -g3 -I.
 
 CC = cc
 
 
+#	Sources
+# =========================================================================== ||
 
-SRCS = pushswap.c
-
+SRCS = \
+	push_swap.c			\
+	push_swap_base.c	\
+	push_stack.c		\
+	push_rotate.c		\
+	push_parsing.c		\
+	push_push.c			\
+	push_utils.c
 
 OBJS = $(SRCS:.c=.o)
-
 
 LIBFT = libft/libft.a
 
 
+#	Recipes
+# ========================================================================== ||
+
 all: $(NAME)
+	@echo "\n\tCompiling Complete!\n"
 
 
 $(NAME) : $(LIBFT) $(OBJS) 
-	$(CC) $(OBJS) -Llibft -lft -o $@
+	@$(CC) $(OBJS) -Llibft -lft -o $@
 
 
 %.o : %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "\tCompiling -> "$@
+
 
 $(LIBFT) :
-	$(MAKE) -C libft/ all
+	@$(MAKE) -sC libft/ all
+	@echo "\n\tCompiling -> "$@
 
+
+#	Clean
+# ========================================================================== ||
 
 clean:
-	rm -fr $(OBJS)
-	$(MAKE) -C libft/ $@
-
+	@rm -fr $(OBJS)
+	@$(MAKE) -sC libft/ $@
+	@echo "\n\tDeleting OBJs"
 
 fclean : clean
-	rm -f $(NAME)
-	$(MAKE) -C libft/ $@
+	@rm -f $(NAME)
+	@$(MAKE) -sC libft/ $@
+	@echo "\tDeleting Files"
 
 
 re : fclean all
 
-.PHONY : all bonus clean fclean re
+
+#	.PHONY
+# ========================================================================== ||
+.PHONY : all clean fclean re
