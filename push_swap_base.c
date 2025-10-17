@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 19:07:14 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/10 15:07:05 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:48:41 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_swap(t_carray *stack, char c)
 {
 	char	*swap;
 
+	if (stack->len < 2)
+		return (NULL);
 	if (c == 'a')
 		swap = "sa";
 	else

@@ -6,11 +6,11 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:06:56 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/10 15:07:23 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/15 16:43:24 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 char	*ft_push(t_carray *stack_a, t_carray *stack_b, char direction)
 {
@@ -18,6 +18,8 @@ char	*ft_push(t_carray *stack_a, t_carray *stack_b, char direction)
 
 	if (direction == 'a')
 	{
+		if (stack_a->len < 1)
+			return (NULL);
 		push = "pb";
 		ft_att_tcarray(stack_b, POS_UP, POS_KEEP, LEN_ADD);
 		ft_swap_base(stack_a, stack_a->start, stack_b, stack_b->start);
@@ -25,6 +27,8 @@ char	*ft_push(t_carray *stack_a, t_carray *stack_b, char direction)
 	}
 	else
 	{
+		if (stack_b->len < 1)
+			return (NULL);
 		push = "pa";
 		ft_att_tcarray(stack_a, POS_UP, POS_KEEP, LEN_ADD);
 		ft_swap_base(stack_b, stack_b->start, stack_a, stack_a->start);

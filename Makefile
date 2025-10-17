@@ -6,7 +6,7 @@
 #    By: buehara <buehara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/01 18:38:10 by buehara           #+#    #+#              #
-#    Updated: 2025/10/10 15:08:35 by buehara          ###   ########.fr        #
+#    Updated: 2025/10/17 16:21:06 by buehara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,15 @@ CC = cc
 # =========================================================================== ||
 
 SRCS = \
-	push_swap.c			\
-	push_swap_base.c	\
-	push_stack.c		\
-	push_rotate.c		\
-	push_parsing.c		\
-	push_push.c			\
-	push_utils.c
+	push_swap.c				\
+	push_swap_base.c		\
+	push_stack.c			\
+	push_rotate.c			\
+	push_parsing.c			\
+	push_parsing_utils.c	\
+	push_push.c				\
+	push_sort.c
+	
 
 OBJS = $(SRCS:.c=.o)
 
@@ -40,7 +42,7 @@ LIBFT = libft/libft.a
 #	Recipes
 # ========================================================================== ||
 
-all: $(NAME)
+all : $(NAME)
 	@echo "\n\tCompiling Complete!\n"
 
 
@@ -56,7 +58,6 @@ $(NAME) : $(LIBFT) $(OBJS)
 $(LIBFT) :
 	@$(MAKE) -sC libft/ all
 	@echo "\n\tCompiling -> "$@
-
 
 #	Clean
 # ========================================================================== ||

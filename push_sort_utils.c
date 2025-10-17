@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_utils.c                                       :+:      :+:    :+:   */
+/*   push_sort_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 13:55:40 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/09 19:29:21 by buehara          ###   ########.fr       */
+/*   Created: 2025/10/17 16:27:12 by buehara           #+#    #+#             */
+/*   Updated: 2025/10/17 20:14:10 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_free(int *arg, t_carray *stack)
+void	ft_swap_sort(int *a, int *b)
 {
-	if (arg)
-		free(arg);
-	if (stack)
-		free(stack);
+	int c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
-void	ft_error(void *arg, t_carray *stack)
-{
-	ft_push_free(arg, stack);
-	ft_printf("Error\n");
-	exit(TRUE);
-}

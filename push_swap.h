@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/10 16:34:11 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/17 16:17:59 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include "libft/includes/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
+
+enum e_char
+{
+	SPACE = 32
+};
 
 enum e_stackPosition
 {
@@ -41,12 +46,13 @@ typedef struct s_carray
 void		ft_test(t_carray *stack, int argc);
 void		ft_print_array(t_carray *stack, char *c);
 
-
 // 		Functions Utils
 // ============================================================= ||
 
-void		ft_error(void *arg, t_carray *stack);
+int			ft_isspace(int c);
+void		ft_error(void *arg, t_carray *stack, int check);
 void		ft_push_free(int *arg, t_carray *stack);
+void		ft_str_free(char **list);
 
 // 		Functions Stacks
 // ============================================================= ||
@@ -65,8 +71,15 @@ void		ft_swap_base(t_carray *stk_a, int idx_a, \
 // 		Functions Parsing
 // ============================================================= ||
 
+int			ft_count_int(char **list);
 int			ft_digit_check(char **argv);
-int			*ft_parsing(int argc, char **argv);
+int			*ft_parsing(int argc, char **argv, int *len);
 int			ft_dup_check(int *arg, int n);
+char		*ft_rev_split(int n, char **args, char c);
+
+//		Sort Functions
+//============================================================== ||
+void		ft_swap_sort(int *a, int *b);
+void		ft_bubble_sort(int *list, int len);
 
 #endif
