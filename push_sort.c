@@ -6,29 +6,33 @@
 /*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 14:50:44 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/17 20:41:29 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/20 16:49:23 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bubble_sort(int *list, int len)
+void	ft_in_sort(int *list, int len)
 {
-	int	in;
+	int in;
 	int out;
+	int	temp;
 
-	out = 0;
-	while (out < len)
+	if (len > 1)
 	{
-		in = out + 1;
-		while (in < len)
+		out = 1;
+		while (out < len)
 		{
-			if (list[out] > list[in])
-				ft_swap_sort(&list[out], &list[in]);
-			in++;
+			in = out;
+			temp = list[out];
+			while (in > 0 && temp < list[in - 1])
+			{
+				list[in] = list[in - 1];
+				in--;
+			}
+			list[in] = temp;
+			out++;
 		}
-		out++;
 	}
 }
-
 

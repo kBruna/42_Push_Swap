@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:50:00 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/17 16:23:45 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/20 21:31:48 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void ft_test(t_carray *stack, int argc)
 	if (argc > 1)
 	{
 		ft_print_array(stack, "Before");
-		ft_bubble_sort(stack->stack, stack->len);
+		ft_mer_sort(stack->stack, stack->start, stack->len-1);
 		ft_print_array(stack, "After");
 	}	
 }
