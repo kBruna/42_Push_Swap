@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/20 18:05:01 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/21 21:14:48 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_carray
 // 		Test Functions
 void		ft_test(t_carray *stack, int argc);
 void		ft_print_array(t_carray *stack, char *c);
+void		ft_print_list(int *list, int len);
 
 // 		Functions Utils
 // ============================================================= ||
@@ -79,8 +80,20 @@ char		*ft_rev_split(int n, char **args, char c);
 
 //		Sort Functions
 //============================================================== ||
+//---- Swap Array ------
 void		ft_swap_sort(int *a, int *b);
+
+//---- Merge Sort ------
 void		ft_mer_sort(int *list, int start, int end);
 void		ft_mer_utils(int *list, int start, int mid, int end);
+
+//---- Quick Sort ------
+int			ft_rearrange(int *list, int pivot, int end);
+void		ft_quick_sort(int *list, int pivot, int end);
+
+//---- Heap Sort -------
+void		ft_down_the_tree(int *list, int index, int len);
+void		ft_heapfy(int *list, int len);
+void		ft_heap_sort(int *list, int len);
 
 #endif
