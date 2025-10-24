@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/21 21:14:48 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/23 21:01:41 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,18 @@ void		ft_quick_sort(int *list, int pivot, int end);
 void		ft_down_the_tree(int *list, int index, int len);
 void		ft_heapfy(int *list, int len);
 void		ft_heap_sort(int *list, int len);
+
+//---- Shell Sort ------
+void		ft_shell_sort(int *list, int len);
+
+//---- Counting Sort ----
+int			ft_find_max(int *list, int len);
+void		ft_counting_sort(int *list, int len);
+
+//---- Radix Sort ------
+int			**ft_array_radix(int len);
+int			ft_find_digits(int *list, int len);
+void		ft_radix_sort(int *list, int len);
+void		ft_int_free(int **list, int len);
 
 #endif

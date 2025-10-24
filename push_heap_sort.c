@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:20:18 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/21 21:18:43 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/23 14:09:09 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_heapfy(int *list, int len)
 	int	index;
 
 	index = len / 2;
-	while (index > 0)
+	while (index >= 0)
 	{
 		ft_down_the_tree(list, index, len);
 		index--;
@@ -47,9 +47,9 @@ void	ft_heap_sort(int *list, int len)
 	while (len > 0)
 	{
 		ft_print_list(list, len);
-		ft_swap_sort(&list[len - 1], &list[0]);
+		len--;
+		ft_swap_sort(&list[len], &list[0]);
 		ft_print_list(list, len);
 		ft_down_the_tree(list, 0, len);
-		len--;
 	}
 }
