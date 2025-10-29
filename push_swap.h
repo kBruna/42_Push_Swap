@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/23 21:01:41 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/29 17:58:13 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,10 @@ char		*ft_rev_split(int n, char **args, char c);
 
 //		Sort Functions
 //============================================================== ||
-//---- Swap Array ------
+//---- Utils ------
 void		ft_swap_sort(int *a, int *b);
+int			ft_bigger(int a, int b);
+int			ft_smaller(int a, int b);
 
 //---- Merge Sort ------
 void		ft_mer_sort(int *list, int start, int end);
@@ -100,7 +102,7 @@ void		ft_heap_sort(int *list, int len);
 void		ft_shell_sort(int *list, int len);
 
 //---- Counting Sort ----
-int			ft_find_max(int *list, int len);
+int			ft_find_xtreme(int *list, int len, int (*f)(int, int));
 void		ft_counting_sort(int *list, int len);
 
 //---- Radix Sort ------

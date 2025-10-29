@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:48:49 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/29 15:23:55 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/29 17:44:45 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,6 @@ int	**ft_array_radix(int len)
 		idx++;
 	}
 	return (array);
-}
-
-int	ft_find_digits(int *list, int len)
-{
-	int	max;
-	int	count;
-
-	max = ft_find_max(list, len);
-	count = 0;
-	while (max > 9)
-	{
-		max /= 10;
-		count++;
-	}
-	count++;
-	return (count);
 }
 
 void	ft_int_free(int **list, int len_list)
@@ -89,7 +73,6 @@ void	ft_radix_sort(int *list, int len)
 	idx = 0;
 	i = ft_find_digits(list, len);
 	radix = ft_array_radix(len);
-//	ft_memset(rad, 0, 10 * sizeof(int));
 	while ( i > 0 )
 	{
 		ft_memset(rad, 0, 10 * sizeof(int));
