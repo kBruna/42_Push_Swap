@@ -1,0 +1,24 @@
+
+Start
+== Operation : Before ==
+Number : 170
+Number : 45
+Number : 75
+Number : 90
+Number : 802
+Number : 24
+Number : 2
+Number : 66
+End
+
+Start
+== Operation : After ==
+Number : 0
+Number : 2
+Number : 24
+Number : 45
+Number : 66
+Number : 75
+Number : 170
+Number : 802
+End

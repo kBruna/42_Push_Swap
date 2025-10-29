@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_radix_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:48:49 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/23 20:59:03 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/29 15:23:55 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,24 @@ void	ft_int_free(int **list, int len_list)
 	}
 }
 
+int	ft_copy_back(int *list, int **radix, int *rad, int idx, int len)
+{
+	int	ctrl;
+
+	ctrl = len - 1;
+	while ( idx >= 0 )
+	{
+		while ( rad[idx] > 0 )
+		{
+			list[ctrl] = radix[idx][rad[idx] - 1];
+			rad[idx]--;
+			ctrl--;
+		}
+		idx--;
+	}
+	return (idx);
+}
+
 void	ft_radix_sort(int *list, int len)
 {
 	int	**radix;
@@ -71,25 +89,19 @@ void	ft_radix_sort(int *list, int len)
 	idx = 0;
 	i = ft_find_digits(list, len);
 	radix = ft_array_radix(len);
-	ft_memset(rad, 0, 10 * sizeof(int));
+//	ft_memset(rad, 0, 10 * sizeof(int));
 	while ( i > 0 )
 	{
+		ft_memset(rad, 0, 10 * sizeof(int));
 		while (idx < len)
 		{
+			radix[(list[idx] / exp) % 10][rad[(list[idx] / exp) % 10]] = list[idx];
 			rad[(list[idx] / exp) % 10]++;
-			radix[(list[idx] / exp) % 10][rad[list[idx] / exp % 10]] = list[idx];
 			idx++;
 		}
 		exp *= 10;
-		while ( idx - 1 > 0 )
-		{
-			idx--;
-			while (rad[idx] != 0)
-			{
-				list[idx] = radix[idx][rad[idx]];
-				rad[idx]--;
-			}
-		}
+		ft_copy_back(list, radix, rad, idx, len);
+		idx = 0;
 		i--;
 	}
 	ft_int_free(radix,10);
