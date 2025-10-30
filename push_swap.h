@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/10/29 17:58:13 by buehara          ###   ########.fr       */
+/*   Updated: 2025/10/30 20:13:22 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ enum e_stackPosition
 	LEN_ADD = 1,
 	LEN_MINUS = -1
 };
+
+typedef struct s_moves
+{
+	int len;
+	char **moves;
+}				t_moves;
 
 typedef struct s_carray
 {
@@ -77,6 +83,10 @@ int			ft_digit_check(char **argv);
 int			*ft_parsing(int argc, char **argv, int *len);
 int			ft_dup_check(int *arg, int n);
 char		*ft_rev_split(int n, char **args, char c);
+
+//		Moves List
+// ============================================================= ||
+void		ft_moves_add(t_moves *m_list, char *mov);
 
 //		Sort Functions
 //============================================================== ||
