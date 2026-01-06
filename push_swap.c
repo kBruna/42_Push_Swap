@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:50:00 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/20 19:47:56 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/05 21:19:55 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int	ft_sorted(t_carray *stack, int (*f)(int, int))
 
 void	ft_moves(t_moves *m_list, char *mov)
 {
-//	int	last;
-//	int			bit_move;
+	int	last;
+	int			bit_move;
 
 	if (m_list->len == m_list->max - 1 || mov == NULL)
 		return ;
-/*	if (m_list->len == 0)
+	if (m_list->len == 0)
 		last = 0;
 	else
 		last = move_check(m_list->moves[m_list->len - 1]);
@@ -59,8 +59,8 @@ void	ft_moves(t_moves *m_list, char *mov)
 			m_list->moves[m_list->len - 1] = "ss";
 	}
 	if (!last || last == move_check(m_list->moves[m_list->len - 1]))
-		m_list->moves[m_list->len++] = mov;*/
-	m_list->moves[m_list->len++] = mov;
+		m_list->moves[m_list->len++] = mov;
+	//m_list->moves[m_list->len++] = mov;
 }
 
 int	ft_log(int len, int base)
@@ -155,9 +155,7 @@ void	ft_push_rad(t_carray *sta, t_carray *stb, char to_a, char to_b)
 		if ((sta->stack[sta->start] & BITMASK) == 0)
 			ft_printf("%s\n", ft_push_global(sta, stb, to_b));
 		else if ((sta->stack[sta->start] & BITMASK) == 1)
-		{
 			ft_printf("%s\n", ft_rotate(sta, to_a));
-		}
 		idx++;
 	}
 	while (stb->len > 0)
@@ -180,17 +178,10 @@ void	ft_push_swap(t_carray *stack)
 		ft_print_move(list);
 	}
  	else
+	{
 		while (!ft_sorted(stack, ft_bigger))
-		{
 			ft_push_rad(stack, st_b, 'a', 'b');
-//			bit_shift(stack);
-//		while (!ft_sorted(stack, ft_bigger) || !ft_sorted(st_b, ft_smaller))
-//		{
-//			bit_shift(stack);
-//			bit_shift(st_b);
-//			ft_push_rad_aux(st_b, stack);
-//		}
-		}	
+	}
 	ft_push_free(st_b->stack, st_b);
 	free(list->moves);
 	free(list);
