@@ -6,7 +6,7 @@
 #    By: buehara <buehara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/01 18:38:10 by buehara           #+#    #+#              #
-#    Updated: 2025/11/17 15:35:47 by buehara          ###   ########.fr        #
+#    Updated: 2026/01/05 21:03:40 by buehara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,26 +24,18 @@ CC = cc
 # =========================================================================== ||
 
 SRCS = \
-	push_atoi.c				\
-	push_swap.c				\
-	push_swap_base.c		\
-	push_stack.c			\
-	push_rotate.c			\
-	push_parsing.c			\
-	push_parsing_utils.c	\
-	push_push.c				\
-	push_sort.c				\
-	push_sort_utils.c		\
-	push_merge.c			\
-	push_qsort.c			\
-	push_heap_sort.c		\
-	push_shell_sort.c		\
-	push_count_sort.c		\
-	push_radix_sort.c		\
-	push_rev_rotate.c		\
-	push_move.c				\
+	atoi.c				\
+	push_swap.c			\
+	push_swap_base.c	\
+	stack.c				\
+	rotate.c			\
+	parsing.c			\
+	parsing_utils.c		\
+	push.c				\
+	sort_utils.c		\
+	rev_rotate.c		\
+	move.c				\
 	main.c
-	
 
 OBJS = $(SRCS:.c=.o)
 
