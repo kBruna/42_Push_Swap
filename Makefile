@@ -6,7 +6,7 @@
 #    By: buehara <buehara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/01 18:38:10 by buehara           #+#    #+#              #
-#    Updated: 2026/01/05 21:03:40 by buehara          ###   ########.fr        #
+#    Updated: 2026/01/06 14:00:38 by buehara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRCS = \
 	push.c				\
 	sort_utils.c		\
 	rev_rotate.c		\
+	radix.c				\
 	move.c				\
+	backtracking.c		\
 	main.c
 
 OBJS = $(SRCS:.c=.o)
