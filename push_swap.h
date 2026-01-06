@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/20 15:53:09 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/05 20:54:07 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ int			ft_digit_check(char **argv);
 int			*ft_parsing(int argc, char **argv, int *len);
 int			ft_dup_check(int *arg, int n);
 char		*ft_rev_split(int n, char **args, char c);
+void		ft_check_arg(char *str, int *null, int i);
 
 //		Moves List
 // ============================================================= ||
@@ -183,25 +184,7 @@ void		ft_swap_sort(int *a, int *b);
 int			ft_bigger(int a, int b);
 int			ft_smaller(int a, int b);
 
-//---- Merge Sort ------
-void		ft_mer_sort(int *list, int start, int end);
-void		ft_mer_utils(int *list, int start, int mid, int end);
-
-//---- Quick Sort ------
-int			ft_rearrange(int *list, int pivot, int end);
-void		ft_quick_sort(int *list, int pivot, int end);
-
-//---- Heap Sort -------
-void		ft_down_the_tree(int *list, int index, int len);
-void		ft_heapfy(int *list, int len);
-void		ft_heap_sort(int *list, int len);
-
-//---- Shell Sort ------
-void		ft_shell_sort(int *list, int len);
-
-//---- Counting Sort ----
 int			ft_find_xtreme(int *list, int len, int (*f)(int, int));
-void		ft_counting_sort(int *list, int len);
 
 //---- Radix Sort ------
 int			**ft_array_radix(int len);
