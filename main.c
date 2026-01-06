@@ -6,13 +6,13 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:51:35 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/20 19:36:26 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/05 21:05:03 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_array(t_carray *stack, char *c)
+/*void	ft_print_array(t_carray *stack, char *c)
 {
 	int	i;
 	int start;
@@ -47,7 +47,7 @@ void	ft_print_list(t_carray *stack, int len)
 			ft_printf(" ");
 	}
 	ft_printf("]\n");
-}
+}*/
 
 void	ft_print_move(t_moves *list)
 {
