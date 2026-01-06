@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_sort_utils.c                                  :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:27:12 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/02 17:44:50 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 11:42:51 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,25 @@ int	ft_find_xtreme(int *list, int len, int (*f) (int, int))
 	return (result);
 }
 
-int	ft_find_digits(int *list, int len)
+int	ft_sorted(t_carray *stack, int (*f)(int, int))
 {
-	int	max;
-	int	count;
+	int	temp;
+	int	ctrl;
+	int start;
 
-	max = ft_find_xtreme(list, len, ft_bigger);
-	count = 0;
-	while (max > 9)
+	if (stack->len == 0)
+		return (TRUE);
+	ctrl = 0;
+	start = stack->start;
+	temp = stack->stack[start];
+	while (ctrl < stack->len - 1)
 	{
-		max /= 10;
-		count++;
+		ctrl++;
+		start = (ctrl + stack->start) % stack->max;
+		if (f(temp, stack->stack[start]))
+			return (FALSE);
+		temp = stack->stack[start];
 	}
-	count++;
-	return (count);
+	return (TRUE);
 }
+

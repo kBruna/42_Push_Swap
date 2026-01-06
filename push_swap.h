@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2026/01/05 20:54:07 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 14:27:01 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ enum e_maska
     RB,
     RRB,
     PA,
-	TOTALMOVES
+	T_MOVES
 };
 
 enum e_maskf
@@ -172,7 +172,7 @@ int			move_check(char *mov);
 int			move_limit(t_moves *list, t_carray *sta);
 int			move_dub(int mov, t_moves *list, t_carray *sta, t_carray *stb);
 void		ft_print_move(t_moves *list);
-void		ft_moves(t_moves *m_list, char *mov);
+int			ft_moves(t_moves *m_list, char *mov);
 void		move_return(t_moves *list, t_carray *sta, t_carray *stb);
 t_moves		*ft_move_add(int llen);
 t_mfunc		func_list(int list);
@@ -184,6 +184,8 @@ void		ft_swap_sort(int *a, int *b);
 int			ft_bigger(int a, int b);
 int			ft_smaller(int a, int b);
 
+int			ft_push_alg(t_moves *list, t_carray *sta, t_carray *stb);
+t_moves		*ft_move_add(int llen);
 int			ft_find_xtreme(int *list, int len, int (*f)(int, int));
 
 //---- Radix Sort ------
@@ -191,5 +193,6 @@ int			**ft_array_radix(int len);
 int			ft_find_digits(int *list, int len);
 void		ft_radix_sort(int *list, int len);
 void		ft_int_free(int **list, int len);
+void		ft_push_rad(t_carray *sta, t_carray *stb, char to_a, char to_b);
 
 #endif
