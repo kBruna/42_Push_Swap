@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:06:47 by buehara           #+#    #+#             */
-/*   Updated: 2026/01/06 14:27:01 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:48:54 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,25 @@ enum e_stackPosition
 
 enum e_maskr
 {
-    PZERO = 64,
-    RZERO = 32,
-    RSEC = 16,
-    SZERO = 8,
-    DOUBLE = 4,
-    AMASK = 2,
-    BMASK = 1
+	PZERO	= 64,
+	RZERO	= 32,
+	RSEC	= 16,
+	SZERO	= 8,
+	DOUBLE	= 4,
+	AMASK	= 2,
+	BMASK	= 1
 };
-	
+
 enum e_maska
 {
 	PB,
-    SA,
-    RA,
-    RRA,
-    SB,
-    RB,
-    RRB,
-    PA,
+	SA,
+	RA,
+	RRA,
+	SB,
+	RB,
+	RRB,
+	PA,
 	T_MOVES
 };
 
@@ -92,14 +92,14 @@ typedef struct s_moves
 
 typedef struct s_carray
 {
-	int	len;
-	int	start;
-	int	end;
-	int	max;
-	int	*stack;
+	int		len;
+	int		start;
+	int		end;
+	int		max;
+	int		*stack;
 }				t_carray;
 
-typedef char	*(*t_mfunc)(t_carray *stack_a, t_carray *stack_b); 
+typedef char	*(*t_mfunc)(t_carray *stack_a, t_carray *stack_b);
 
 // 		Test Functions
 void		ft_test(t_carray *stack, int argc);
@@ -116,7 +116,7 @@ void		ft_push_swap(t_carray *stack);
 
 int			ft_atoi_push(const char *nptr, char **list, int *arg);
 int			ft_isspace(int c);
-int			ft_sorted(t_carray *stack, int(*f)(int, int));
+int			ft_sorted(t_carray *stack, int (*f)(int, int));
 int			*ft_copy_better(int *list, int len);
 void		ft_error(void *arg, t_carray *stack, int check);
 void		ft_push_free(int *arg, t_carray *stack);
@@ -140,7 +140,8 @@ char		*ft_swap(t_carray *stack, char c);
 char		*swap_a(t_carray *sta, t_carray *stb);
 char		*swap_b(t_carray *sta, t_carray *stb);
 void		ft_push(t_carray *stack_a, t_carray *stack_b);
-char		*ft_push_global(t_carray *stack_a, t_carray *stack_b, char direction);
+char		*ft_push_global(t_carray *stack_a, t_carray *stack_b,
+				char direction);
 char		*push_a(t_carray *sta, t_carray *stb);
 char		*push_b(t_carray *sta, t_carray *stb);
 char		*ft_rotate(t_carray *stack, char c);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_move.c                                        :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 19:15:19 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/13 20:36:07 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:54:42 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_mfunc	func_list(int index)
 {
-	t_mfunc	map[TOTALMOVES];
+	t_mfunc	map[T_MOVES];
 
 	map[PB] = &push_b;
 	map[RRA] = &rev_rotate_a;
@@ -24,9 +24,8 @@ t_mfunc	func_list(int index)
 	map[RB] = &rotate_b;
 	map[RRB] = &rev_rotate_b;
 	map[PA] = &push_a;
-
 	return (map[index]);
-};
+}
 
 int	move_check(char *mov)
 {
@@ -103,7 +102,7 @@ int	move_dub(int mov, t_moves *list, t_carray *sta, t_carray *stb)
 int	move_limit(t_moves *list, t_carray *sta)
 {
 	int	flag;
-	int ctrl;
+	int	ctrl;
 	int	idx;
 	int	keep;
 
@@ -151,4 +150,3 @@ void	move_return(t_moves *list, t_carray *sta, t_carray *stb)
 		rotate_b(sta, stb);
 	list->len--;
 }
-

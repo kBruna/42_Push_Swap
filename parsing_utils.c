@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_parsing_utils.c                               :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 13:55:40 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/17 15:23:30 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:38:47 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ void	ft_error(void *arg, t_carray *stack, int check)
 	exit(TRUE);
 }
 
-int	ft_isspace(int c)
-{
-	if ((c > 8 && c < 14) || c == 32)
-		return (TRUE);
-	return (FALSE);
-}
-
 void	ft_str_free(char **list)
 {
 	int	i;
@@ -48,4 +41,43 @@ void	ft_str_free(char **list)
 		i++;
 	}
 	free(list);
+}
+
+char	*ft_rev_split(int n, char **args, char c)
+{
+	char	*str;
+	int		len;
+	int		idx;
+
+	idx = 1;
+	len = 0;
+	if (!c || !args)
+		return (NULL);
+	while (idx < n)
+		len += ft_strlen(args[idx++]);
+	str = ft_calloc((len + idx), sizeof(char));
+	if (!str)
+		return (NULL);
+	idx = 1;
+	len = 0;
+	while (idx < n)
+	{
+		ft_strlcat(str, &c, ++len);
+		len += ft_strlen(args[idx]);
+		ft_strlcat(str, args[idx], len);
+		idx++;
+	}
+	return (str);
+}
+
+int	ft_count_int(char **list)
+{
+	int	count;
+
+	count = 0;
+	while (list[count] != NULL)
+	{
+		count++;
+	}
+	return (count);
 }

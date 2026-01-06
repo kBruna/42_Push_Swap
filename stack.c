@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 13:56:35 by buehara           #+#    #+#             */
-/*   Updated: 2025/11/04 13:50:48 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:50:41 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ int	ft_next(t_carray *stack, int index)
 
 int	ft_before(t_carray *stack)
 {
-	int before;
+	int	before;
 
 	before = (stack->start + (stack->max - 1) + (POS_UP)) % stack->max;
 	return (before);
 }
-

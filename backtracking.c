@@ -6,24 +6,14 @@
 /*   By: buehara <buehara@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 11:43:33 by buehara           #+#    #+#             */
-/*   Updated: 2026/01/06 14:38:37 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:54:20 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_moves(t_moves *m_list, char *mov)
+int	bit_check(t_moves *m_list, int last, int bit_move)
 {
-	int	last;
-	int			bit_move;
-
-	if (m_list->len == m_list->max - 1 || mov == NULL)
-		return (TRUE);
-	if (m_list->len == 0)
-		last = 0;
-	else
-		last = move_check(m_list->moves[m_list->len - 1]);
-	bit_move = move_check(mov);
 	if (last && (bit_move ^ last) == 3)
 	{
 		if ((bit_move ^ RZERO) < bit_move)
@@ -45,6 +35,23 @@ int	ft_moves(t_moves *m_list, char *mov)
 			return (TRUE);
 		}
 	}
+	return (FALSE);
+}
+
+int	ft_moves(t_moves *m_list, char *mov)
+{
+	int	last;
+	int	bit_move;
+
+	if (m_list->len == m_list->max - 1 || mov == NULL)
+		return (TRUE);
+	if (m_list->len == 0)
+		last = 0;
+	else
+		last = move_check(m_list->moves[m_list->len - 1]);
+	bit_move = move_check(mov);
+	if (bit_check(m_list, last, bit_move))
+		return (TRUE);
 	if (!last || last == move_check(m_list->moves[m_list->len - 1]))
 		m_list->moves[m_list->len++] = mov;
 	return (FALSE);
@@ -52,9 +59,9 @@ int	ft_moves(t_moves *m_list, char *mov)
 
 int	ft_log(int len, int base)
 {
-	int log_base;
-	int result;
-	int log;
+	int	log_base;
+	int	result;
+	int	log;
 
 	log = 0;
 	log_base = base;
@@ -105,7 +112,7 @@ int	ft_push_alg(t_moves *list, t_carray *sta, t_carray *stb)
 		if (!move_dub(idx, list, sta, stb))
 			continue ;
 		ft = func_list(idx);
-		mov = ft(sta,stb);
+		mov = ft(sta, stb);
 		if (mov == NULL)
 			continue ;
 		if (ft_moves(list, mov))

@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_parsing.c                                     :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 13:54:57 by buehara           #+#    #+#             */
-/*   Updated: 2026/01/05 20:54:01 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:55:07 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_issignal(int c)
-{
-	if (c == '+' || c == '-')
-		return (TRUE);
-	return (FALSE);
-}
 
 void	ft_check_arg(char *str, int *null, int i)
 {
@@ -28,14 +21,13 @@ void	ft_check_arg(char *str, int *null, int i)
 		*null = 1;
 	if (!ft_isdigit(ch) && !ft_isspace(ch) && !ft_issignal(ch))
 		ft_error(NULL, (t_carray *) NULL, TRUE);
-	if (ft_issignal(ch) && ft_issignal(str[i+1]))
+	if (ft_issignal(ch) && ft_issignal(str[i + 1]))
 		ft_error(NULL, (t_carray *) NULL, TRUE);
-	if (ft_issignal(ch) && str[i+1] == ' ')
+	if (ft_issignal(ch) && str[i + 1] == ' ')
 		ft_error(NULL, (t_carray *) NULL, TRUE);
-	if (ft_issignal(ch) && str[i-1] && !ft_isspace(str[i-1]))
+	if (ft_issignal(ch) && str[i - 1] && !ft_isspace(str[i - 1]))
 		ft_error(NULL, (t_carray *) NULL, TRUE);
 }
-
 
 int	ft_digit_check(char **str)
 {
@@ -59,46 +51,6 @@ int	ft_digit_check(char **str)
 	}
 	return (FALSE);
 }
-
-char	*ft_rev_split(int n, char **args, char c)
-{
-	char	*str;
-	int		len;
-	int		idx;
-
-	idx = 1;
-	len = 0;
-	if (!c || !args)
-		return (NULL);
-	while (idx < n)
-		len += ft_strlen(args[idx++]);
-	str = ft_calloc((len + idx), sizeof(char));
-	if (!str)
-		return (NULL);
-	idx = 1;
-	len = 0;
-	while (idx < n)
-	{
-		ft_strlcat(str, &c, ++len);
-		len += ft_strlen(args[idx]);
-		ft_strlcat(str, args[idx], len);
-		idx++;
-	}
-	return (str);
-}
-
-int	ft_count_int(char **list)
-{
-	int	count;
-
-	count = 0;
-	while (list[count] != NULL)
-	{
-		count++;
-	}
-	return (count);
-}
-
 
 int	*ft_parsing(int argc, char **argv, int *len)
 {

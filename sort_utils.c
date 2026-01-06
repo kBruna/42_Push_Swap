@@ -6,7 +6,7 @@
 /*   By: buehara <buehara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:27:12 by buehara           #+#    #+#             */
-/*   Updated: 2026/01/06 11:42:51 by buehara          ###   ########.fr       */
+/*   Updated: 2026/01/06 17:50:22 by buehara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_swap_sort(int *a, int *b)
 {
-	int c;
+	int	c;
 
 	c = *a;
 	*a = *b;
 	*b = c;
 }
 
-int ft_bigger(int a, int b)
+int	ft_bigger(int a, int b)
 {
 	if (a > b)
 		return (TRUE);
@@ -37,7 +37,7 @@ int	ft_smaller(int a, int b)
 
 int	ft_find_xtreme(int *list, int len, int (*f) (int, int))
 {
-	int result;
+	int	result;
 	int	idx;
 
 	idx = 0;
@@ -55,7 +55,7 @@ int	ft_sorted(t_carray *stack, int (*f)(int, int))
 {
 	int	temp;
 	int	ctrl;
-	int start;
+	int	start;
 
 	if (stack->len == 0)
 		return (TRUE);
@@ -72,4 +72,3 @@ int	ft_sorted(t_carray *stack, int (*f)(int, int))
 	}
 	return (TRUE);
 }
-
