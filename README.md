@@ -8,65 +8,57 @@
 
 ### Overview
 
-This is the 42's project of sorting numbers. We have two stacks available (stack A and stack B) to sort an N amount of numbers, within the range of an int in C, and some movements available to sort them between the two stacks in a way that the numbers end up sorted from smaller to biggest on the stack A.
+This is 42's number sorting project. We have two stacks available (stack A and stack B) to sort N numbers within the range of an int in C, using specific operations to sort them between the two stacks so that the numbers end up sorted from smallest to largest on stack A.
 
-Stack A that contains unique negative and/or positive integers.
+Stack A contains unique negative and/or positive integers.
 
 Stack B is empty.
 
-
 Available operations:
 
-	- sa (swap a) = Swap the first 2 elements at top of stack A.
-	
-	- sb (swap b) = Swap the first 2 elements at top of stack B.
-	
-	- ss = Do sa and sb at the same time.
-	
-	- pa (push a) = Take the first element at the top of B and put it at the top of A.
-	
-	- pb (push b) = Take the first element at the top of A and put it at the top of B.
-	
-	- ra (rotate a) = Shift up all elements of stack A by 1.
-	
-	- rb (rotate b) = Shift up all elements of stack B by 1.
-	
-	- rr = ra and rb at the same time.
-	
-	- rra (reverse rotate a) = Shift down all elements of stack A by 1.
-	
-	- rrb (reverse rotate b) = Shift down all elements of stack B by 1.
-	
-	- rrr = rra and rrb at the same time.
+- sa (swap a) = Swap the first 2 elements at the top of stack A.
+- sb (swap b) = Swap the first 2 elements at the top of stack B.
+- ss = Do sa and sb at the same time.
+- pa (push a) = Take the first element at the top of B and put it at the top of A.
+- pb (push b) = Take the first element at the top of A and put it at the top of B.
+- ra (rotate a) = Shift up all elements of stack A by 1.
+- rb (rotate b) = Shift up all elements of stack B by 1.
+- rr = ra and rb at the same time.
+- rra (reverse rotate a) = Shift down all elements of stack A by 1.
+- rrb (reverse rotate b) = Shift down all elements of stack B by 1.
+- rrr = rra and rrb at the same time.
 
 ### Goal
 
-Learn more about sorting algorithmns, about algorithms efficiency, and have a sorted stack A by the end, with the least amount of movements possible.
-
+Learn more about sorting algorithms, algorithm efficiency, and achieve a sorted stack A with the least number of moves possible.
 
 ## Instructions
 
-To install this project on Linux systems just run the code on the terminal:
+To install this project on Linux systems, run the following command in the terminal:
+```bash
+git clone https://github.com/kBruna/42_Push_Swap.git push_swap && cd push_swap && make
+```
 
-`git clone https://github.com/kBruna/42_Push_Swap.git push_swap && cd push_swap && make`
+The Makefile will handle the basic installation of push_swap.
 
-The Makefile will take care of the push_swap's basic installation.
+To run this program, follow this command structure:
+```bash
+./push_swap <numbers-to-sort>
+```
 
-To run this program follow the following command structure:
+The numbers can be separated with spaces as individual arguments:
+```bash
+./push_swap 5 4 3 2 1
+```
 
-`./push_swap <numbers-to-sort>`
+Or they can be passed as a single string:
+```bash
+./push_swap "5 4 3 2 1"
+```
 
-The numbers can be separated with spaces as unique arguments:
-
-`./push_swap 5 4 3 2 1`
-
-Or they can be parsed as a single string:
-
-`./push_swap "5 4 3 2 1"`
-
-The expected output will be the movement used to sort the numbers using the two stacks, like this:
-
-```pb
+The expected output will be the movements used to sort the numbers using the two stacks, like this:
+```
+pb
 sa
 ra
 sa
@@ -76,36 +68,39 @@ rra
 sa
 pa
 ra
-sa```
+sa
+```
 
-If any argument is not a digit, or it is improprially formatted, the program will only return an error.
-
-`Error`
+If any argument is not a digit or is improperly formatted, the program will return an error:
+```
+Error
+```
 
 ## Resources
 
-Here is some of the links and references used in this project, along with some comentaries about the usage if AI in this project:
+Here are some of the links and references used in this project, along with some comments about the use of AI:
 
-[https://push-swap42-visualizer.vercel.app/]
-- This is the visualizer program used to check if the program returned the correct movements to organize the stack. It does provides some utilities more than the visualizer provided on the project. And I think its prettier.
+- [Push Swap Visualizer](https://push-swap42-visualizer.vercel.app/)
+  - This visualizer was used to check if the program returned the correct movements to organize the stack. It provides more utilities than the visualizer provided in the project, and I think it's prettier.
 
-[https://www.geeksforgeeks.org/dsa/sorting-algorithms/]
-- The GeeksforGeeks page about sorting algorithms. Along with its pages about bubble sort, quick sort, and several others.
+- [GeeksforGeeks - Sorting Algorithms](https://www.geeksforgeeks.org/dsa/sorting-algorithms/)
+  - The GeeksforGeeks page about sorting algorithms, along with pages about bubble sort, quick sort, and several others.
 
-[https://www.youtube.com/watch?v=kPRA0W1kECg]
-- This comparison video. It shows different algorithms working. Really cool to watch.
+- [Sorting Algorithms Comparison Video](https://www.youtube.com/watch?v=kPRA0W1kECg)
+  - This comparison video shows different algorithms in action. Really cool to watch.
 
-[https://www.geeksforgeeks.org/dsa/backtracking-algorithms/]
-- Geeks for Geeks again, but this time to check the backtracking algorithm. ( Just to make sure: I did the backtracking sorting algorithm and I cannot recommend enough that you stay away from it. Be warned. )
+- [GeeksforGeeks - Backtracking Algorithms](https://www.geeksforgeeks.org/dsa/backtracking-algorithms/)
+  - GeeksforGeeks again, but this time to check the backtracking algorithm. (Just to make sure: I implemented the backtracking sorting algorithm and I cannot recommend enough that you stay away from it. Be warned.)
 
-About AI:
-Yes, I used AI. Mostly to make sure my crazy idea had any base in reality. ChatGPT was actually relutant to agree, but after some time it warmed up to the idea.
-After that, I used to make sure that my calculations were right, to understand some concepts more deeply, and debate some decisions while development was happening.
+### About AI
+
+Yes, I used AI, mostly to ensure my ideas had some basis in reality. ChatGPT was initially reluctant to agree, but eventually warmed up to the concept. After that, I used it to verify my calculations, understand some concepts more deeply, and debate decisions during development.
 
 
 ## Auxiliary functions 
 
-```void	ft_print_array(t_carray *stack, char *c)
+```
+void	ft_print_array(t_carray *stack, char *c)
 {
 	int	i;
 	int start;
@@ -140,4 +135,5 @@ void	ft_print_list(t_carray *stack, int len)
 			ft_printf(" ");
 	}
 	ft_printf("]\n");
-} ```
+}
+```
